@@ -20,9 +20,9 @@ void main() {
             NR11_REG = 0x70U;
             NR12_REG = 0xE0U;
             NR13_REG = 0x0AU;
-            NR14_REG = 0xC6U;
+            NR14_REG = 0xC7U;
 
-            NR51_REG |= 0x11;
+            NR51_REG |= 0x0AU;
             
             delay(200);
         }
