@@ -1,7 +1,7 @@
 #include <gb/gb.h>
 #include <gb/drawing.h>
 
-void main() {
+int main(void) {
     NR50_REG = 0xFF;
     NR51_REG = 0xFF;
     NR52_REG = 0x80;
@@ -12,11 +12,10 @@ void main() {
     gotogxy(2, 3);
     gprintf("Press any button");
     
-    while(1) {
-        UBYTE joypad_state = joypad();
-        
-        if(joypad_state) {        
+    while (1) {
+        if (joypad()) {        
             NR10_REG = 0x38U;
+            // NR10_REG = 0x39U;
             NR11_REG = 0x70U;
             NR12_REG = 0xE0U;
             NR13_REG = 0x0AU;
