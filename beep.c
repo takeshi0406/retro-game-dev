@@ -26,6 +26,7 @@ int main(void) {
             delay(200);
             NR14_REG = 0xC7U;
             delay(200);
+            
         }
     }
 }
