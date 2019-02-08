@@ -24,7 +24,7 @@ int main(void) {
             // NR51_REG |= 0x0AU;
             
             delay(200);
-            NR14_REG = 0xC7B;
+            NR14_REG = 0xC7U;
             delay(200);
         }
     }
