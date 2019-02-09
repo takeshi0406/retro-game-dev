@@ -13,4 +13,4 @@ $(BIN): $(OBJS)
 	$(CC) -o $(BIN) $(OBJS)
 
 clean:
-	rm -rf $(BIN) $(OBJS) *~
+	rm -rf $(BIN) $(OBJS) beep.lst beep.map *~
