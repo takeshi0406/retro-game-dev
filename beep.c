@@ -24,6 +24,15 @@ int main(void) {
             // NR51_REG |= 0x0AU;
             
             delay(200);
+            NR13_REG = 0;
+            NR14_REG = 0xC7U;
+            delay(200);
+
+            NR13_REG = 1;
+            NR14_REG = 0xC7U;
+            delay(200);
+
+            NR13_REG = 2;
             NR14_REG = 0xC7U;
             delay(200);
             
