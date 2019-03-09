@@ -19,7 +19,7 @@ void main(){
             // 3	Sweep Direction (1: decrease, 0: increase)
             // 2-0	Sweep RtShift amount (if 0, sweeping is off)
             // 0001 0110 is 0x16, sweet time 1, sweep direction increase, shift ammount per step 110 (6 decimal)
-            NR10_REG = 0x16; 
+            NR10_REG = 0x06; 
 
             // chanel 1 register 1: Wave pattern duty and sound length
             // Channels 1 2 and 4
@@ -51,7 +51,7 @@ void main(){
             // 1100 0011 is 0xC3, initialize, no consecutive, frequency = MSB + LSB = 011 0000 0000 = 0x300
             NR14_REG = 0xC3;	    
 
-            delay(1000);
+            delay(200);
         }
     }
 }
