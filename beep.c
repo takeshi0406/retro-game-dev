@@ -51,7 +51,7 @@ void main(){
             // 1100 0011 is 0xC3, initialize, no consecutive, frequency = MSB + LSB = 011 0000 0000 = 0x300
             NR14_REG = 0xC3;	    
 
-            delay(200);
+            delay(400);
         }
     }
 }
