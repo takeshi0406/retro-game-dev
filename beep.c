@@ -49,7 +49,7 @@ void main(){
             // 5-3	Unused
             // 2-0	3 Most Significant bits of frequency
             // 1100 0011 is 0xC3, initialize, no consecutive, frequency = MSB + LSB = 011 0000 0000 = 0x300
-            NR14_REG = 0xC3;	    
+            NR14_REG = 0xC4;
 
             delay(400);
         }
