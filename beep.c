@@ -76,11 +76,14 @@ void main() {
             NR14_REG = (UBYTE)((freq >> 8) & 0x00FF) + 0x80;
             delay(400);
 
-            freq = 1046;
-            NR13_REG = (UBYTE)(freq & 0x00FF);
-            NR14_REG = (UBYTE)((freq >> 8) & 0x00FF) + 0x80;
+            sound(1046);
             delay(400);
             delay(400);
         }
     }
+}
+
+void sound(UWORD freq) {
+    NR13_REG = (UBYTE)(freq & 0x00FF);
+    NR14_REG = (UBYTE)((freq >> 8) & 0x00FF) + 0x80;
 }
