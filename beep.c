@@ -1,6 +1,8 @@
 #include <gb/gb.h>
 #include <stdio.h>
 
+void sound(UWORD f);
+
 void main() {
     NR52_REG = 0x80;
     NR50_REG = 0x77;
@@ -9,16 +11,14 @@ void main() {
 
     while (1) {
         UBYTE joypad_state = joypad();
-        UWORD freq;
         
         if (joypad_state) {   
             NR10_REG = 0x06; 
             NR11_REG = 0x40;
             NR12_REG = 0x73;
-            freq = 2024;
-
-
-            sound(freq);
+            sound(1024);
+            delay(400);
+            sound(1379);
             delay(400);
         }
     }
