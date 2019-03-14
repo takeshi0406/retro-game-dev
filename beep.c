@@ -1,5 +1,6 @@
 #include <gb/gb.h>
 #include <stdio.h>
+#define DELAY 400
 
 void sound(UWORD f);
 
@@ -17,15 +18,27 @@ void main() {
             NR11_REG = 0x40;
             NR12_REG = 0x73;
             sound(1024);
-            delay(400);
+            sound(1024);
             sound(1379);
-            delay(400);
+            sound(1379);
+            sound(1452);
+            sound(1452);
+            sound(1379);
+            delay(DELAY);
+            sound(1297);
+            sound(1297);
+            sound(1253);
+            sound(1253);
+            sound(1155);
+            sound(1155);
+            sound(1024);
+            delay(DELAY);
         }
     }
 }
 
 void sound(UWORD f) {
-    // UWORD x = f;
     NR13_REG = (UBYTE)(f & 0x00FF);
     NR14_REG = (UBYTE)((f >> 8) & 0x00FF) + 0x80;
+    delay(DELAY);
 }
