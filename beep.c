@@ -7,83 +7,25 @@ void main() {
     NR51_REG = 0xFF;
 
 
-    while(1) {
+    while (1) {
         UBYTE joypad_state = joypad();
         UWORD freq;
         
-        if(joypad_state) {   
+        if (joypad_state) {   
             NR10_REG = 0x06; 
             NR11_REG = 0x40;
-            NR12_REG = 0x73;  
+            NR12_REG = 0x73;
+            freq = 2024;
 
-            freq = 1046;
-            NR13_REG = (UBYTE)(freq & 0x00FF);
-            NR14_REG = (UBYTE)((freq >> 8) & 0x00FF) + 0x80;
-            delay(400);
-            freq = 1046;
-            NR13_REG = (UBYTE)(freq & 0x00FF);
-            NR14_REG = (UBYTE)((freq >> 8) & 0x00FF) + 0x80;
-            delay(400);
 
-            freq = 1379;
-            NR13_REG = (UBYTE)(freq & 0x00FF);
-            NR14_REG = (UBYTE)((freq >> 8) & 0x00FF) + 0x80;
-            delay(400);
-            freq = 1379;
-            NR13_REG = (UBYTE)(freq & 0x00FF);
-            NR14_REG = (UBYTE)((freq >> 8) & 0x00FF) + 0x80;
-            delay(400);
-
-            freq = 1452;
-            NR13_REG = (UBYTE)(freq & 0x00FF);
-            NR14_REG = (UBYTE)((freq >> 8) & 0x00FF) + 0x80;
-            delay(400);
-            freq = 1452;
-            NR13_REG = (UBYTE)(freq & 0x00FF);
-            NR14_REG = (UBYTE)((freq >> 8) & 0x00FF) + 0x80;
-            delay(400);
-
-            freq = 1379;
-            NR13_REG = (UBYTE)(freq & 0x00FF);
-            NR14_REG = (UBYTE)((freq >> 8) & 0x00FF) + 0x80;
-            delay(400);
-            delay(400);
-
-            freq = 1297;
-            NR13_REG = (UBYTE)(freq & 0x00FF);
-            NR14_REG = (UBYTE)((freq >> 8) & 0x00FF) + 0x80;
-            delay(400);
-            freq = 1297;
-            NR13_REG = (UBYTE)(freq & 0x00FF);
-            NR14_REG = (UBYTE)((freq >> 8) & 0x00FF) + 0x80;
-            delay(400);
-
-            freq = 1253;
-            NR13_REG = (UBYTE)(freq & 0x00FF);
-            NR14_REG = (UBYTE)((freq >> 8) & 0x00FF) + 0x80;
-            delay(400);
-            freq = 1253;
-            NR13_REG = (UBYTE)(freq & 0x00FF);
-            NR14_REG = (UBYTE)((freq >> 8) & 0x00FF) + 0x80;
-            delay(400);
-
-            freq = 1155;
-            NR13_REG = (UBYTE)(freq & 0x00FF);
-            NR14_REG = (UBYTE)((freq >> 8) & 0x00FF) + 0x80;
-            delay(400);
-            freq = 1155;
-            NR13_REG = (UBYTE)(freq & 0x00FF);
-            NR14_REG = (UBYTE)((freq >> 8) & 0x00FF) + 0x80;
-            delay(400);
-
-            sound(1046);
-            delay(400);
+            sound(freq);
             delay(400);
         }
     }
 }
 
-void sound(UWORD freq) {
-    NR13_REG = (UBYTE)(freq & 0x00FF);
-    NR14_REG = (UBYTE)((freq >> 8) & 0x00FF) + 0x80;
+void sound(UWORD f) {
+    // UWORD x = f;
+    NR13_REG = (UBYTE)(f & 0x00FF);
+    NR14_REG = (UBYTE)((f >> 8) & 0x00FF) + 0x80;
 }
