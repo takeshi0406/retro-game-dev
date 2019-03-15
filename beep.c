@@ -1,5 +1,5 @@
 #include <gb/gb.h>
-#include <stdio.h>
+#include <gb/drawing.h>
 #define DELAY 400
 
 void sound(UWORD f);
@@ -9,6 +9,11 @@ void main() {
     NR50_REG = 0x77;
     NR51_REG = 0xFF;
 
+    gotogxy(1, 1);
+    gprintf("====== Beep ======");
+    
+    gotogxy(2, 3);
+    gprintf("Press any button");
 
     while (1) {
         UBYTE joypad_state = joypad();
