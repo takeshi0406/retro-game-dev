@@ -1,8 +1,8 @@
 AS = lcc -c
 CC = lcc -Wa-l -Wl-m
 
-BIN = beep.gb
-OBJS = beep.o
+BIN = twinkle.gb
+OBJS = twinkle.o
 
 all: $(BIN)
 
@@ -13,4 +13,4 @@ $(BIN): $(OBJS)
 	$(CC) -o $(BIN) $(OBJS)
 
 clean:
-	rm -rf $(BIN) $(OBJS) beep.lst beep.map *~
+	rm -rf $(BIN) $(OBJS) twinkle.lst twinkle.map *~
