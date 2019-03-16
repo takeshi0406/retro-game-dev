@@ -1,0 +1,254 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : FreeWare ANSI-C Compiler
+                              3 ; Version 2.3.1 Sat Mar 16 15:06:04 2019
+                              4 
+                              5 ;--------------------------------------------------------
+                              6 	.module lcc972280
+                              7 	
+                              8 ;--------------------------------------------------------
+                              9 ; Public variables in this module
+                             10 ;--------------------------------------------------------
+                             11 	.globl _main
+                             12 	.globl _sprite
+                             13 ;--------------------------------------------------------
+                             14 ; special function registers
+                             15 ;--------------------------------------------------------
+                             16 ;--------------------------------------------------------
+                             17 ; special function bits 
+                             18 ;--------------------------------------------------------
+                             19 ;--------------------------------------------------------
+                             20 ; internal ram data
+                             21 ;--------------------------------------------------------
+                             22 	.area _DATA
+   0000                      23 _sprite::
+   0000                      24 	.ds 16
+                             25 ;--------------------------------------------------------
+                             26 ; overlayable items in internal ram 
+                             27 ;--------------------------------------------------------
+                             28 	.area _OVERLAY
+                             29 ;--------------------------------------------------------
+                             30 ; indirectly addressable internal ram data
+                             31 ;--------------------------------------------------------
+                             32 	.area _ISEG
+                             33 ;--------------------------------------------------------
+                             34 ; bit data
+                             35 ;--------------------------------------------------------
+                             36 	.area _BSEG
+                             37 ;--------------------------------------------------------
+                             38 ; external ram data
+                             39 ;--------------------------------------------------------
+                             40 	.area _XSEG
+                             41 ;--------------------------------------------------------
+                             42 ; global & static initialisations
+                             43 ;--------------------------------------------------------
+                             44 	.area _GSINIT
+                             45 	.area _GSFINAL
+                             46 	.area _GSINIT
+                             47 ;	small_sprite.c 26
+                             48 ;	small_sprite.c 16
+                             49 ;	genArrayInit
+                             50 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   0000 21 00 00             51 	ld	hl,#_sprite
+   0003 CD 00 00             52 	call	__initrleblock
+   0006 F0 FF                53 	.db	-16,0xFF
+   0008 00                   54 	.db	0
+                             55 ;--------------------------------------------------------
+                             56 ; Home
+                             57 ;--------------------------------------------------------
+                             58 	.area _HOME
+                             59 	.area _CODE
+                             60 ;--------------------------------------------------------
+                             61 ; code
+                             62 ;--------------------------------------------------------
+                             63 	.area _CODE
+                             64 ;	small_sprite.c 4
+                             65 ;	genLabel
+                             66 ;	genFunction
+                             67 ;	---------------------------------
+                             68 ; Function main
+                             69 ; ---------------------------------
+   0000                      70 ___main_start:
+   0000                      71 _main:
+   0000 E8 FD                72 	lda	sp,-3(sp)
+                             73 ;	small_sprite.c 5
+                             74 ;	genAssign
+   0002 01 40 FF             75 	ld	bc,#0xFF40
+                             76 ;	genAssign
+                             77 ;	AOP_STK for _main_sloc0_1_0
+   0005 F8 01                78 	lda	hl,1(sp)
+   0007 36 40                79 	ld	(hl),#0x40
+   0009 23                   80 	inc	hl
+   000A 36 FF                81 	ld	(hl),#0xFF
+                             82 ;	genPointerGet
+                             83 ;	AOP_STK for _main_sloc0_1_0
+                             84 ;	AOP_STK for _main_sloc1_1_0
+   000C 2B                   85 	dec	hl
+   000D 5E                   86 	ld	e,(hl)
+   000E 23                   87 	inc	hl
+   000F 56                   88 	ld	d,(hl)
+   0010 1A                   89 	ld	a,(de)
+   0011 2B                   90 	dec	hl
+   0012 2B                   91 	dec	hl
+                             92 ;	genAnd
+                             93 ;	AOP_STK for _main_sloc1_1_0
+   0013 77                   94 	ld      (hl),a
+   0014 7F                   95 	ld      a,a
+   0015 E6 FB                96 	and	a,#0xFB
+                             97 ;	genAssign (pointer)
+   0017 02                   98 	ld	(bc),a
+                             99 ;	small_sprite.c 6
+                            100 ;	genIpush
+                            101 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   0018 21 00 00            102 	ld	hl,#_sprite
+   001B E5                  103 	push	hl
+                            104 ;	genIpush
+   001C 21 00 08            105 	ld	hl,#0x0800
+   001F E5                  106 	push	hl
+                            107 ;	genCall
+   0020 CD 00 00            108 	call	_set_sprite_data
+   0023 E8 04               109 	lda	sp,4(sp)
+                            110 ;	small_sprite.c 7
+                            111 ;	genIpush
+                            112 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   0025 21 00 00            113 	ld	hl,#0x0000
+   0028 E5                  114 	push	hl
+                            115 ;	genCall
+   0029 CD 00 00            116 	call	_set_sprite_tile
+   002C E8 02               117 	lda	sp,2(sp)
+                            118 ;	small_sprite.c 8
+                            119 ;	genIpush
+                            120 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   002E 21 32 32            121 	ld	hl,#0x3232
+   0031 E5                  122 	push	hl
+                            123 ;	genIpush
+   0032 3E 00               124 	ld	a,#0x00
+   0034 F5                  125 	push	af
+   0035 33                  126 	inc	sp
+                            127 ;	genCall
+   0036 CD 00 00            128 	call	_move_sprite
+   0039 E8 03               129 	lda	sp,3(sp)
+                            130 ;	small_sprite.c 9
+                            131 ;	genAssign
+   003B 01 40 FF            132 	ld	bc,#0xFF40
+                            133 ;	genAssign
+                            134 ;	AOP_STK for _main_sloc0_1_0
+   003E F8 01               135 	lda	hl,1(sp)
+   0040 36 40               136 	ld	(hl),#0x40
+   0042 23                  137 	inc	hl
+   0043 36 FF               138 	ld	(hl),#0xFF
+                            139 ;	genPointerGet
+                            140 ;	AOP_STK for _main_sloc0_1_0
+                            141 ;	AOP_STK for _main_sloc1_1_0
+   0045 2B                  142 	dec	hl
+   0046 5E                  143 	ld	e,(hl)
+   0047 23                  144 	inc	hl
+   0048 56                  145 	ld	d,(hl)
+   0049 1A                  146 	ld	a,(de)
+   004A 2B                  147 	dec	hl
+   004B 2B                  148 	dec	hl
+                            149 ;	genOr
+                            150 ;	AOP_STK for _main_sloc1_1_0
+   004C 77                  151 	ld      (hl),a
+   004D 7F                  152 	ld      a,a
+   004E F6 02               153 	or	a,#0x02
+                            154 ;	genAssign (pointer)
+   0050 02                  155 	ld	(bc),a
+                            156 ;	small_sprite.c 10
+                            157 ;	genIpush
+                            158 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   0051 21 90 01            159 	ld	hl,#0x0190
+   0054 E5                  160 	push	hl
+                            161 ;	genCall
+   0055 CD 00 00            162 	call	_delay
+   0058 E8 02               163 	lda	sp,2(sp)
+                            164 ;	small_sprite.c 11
+                            165 ;	genIpush
+                            166 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   005A 21 00 00            167 	ld	hl,#_sprite
+   005D E5                  168 	push	hl
+                            169 ;	genIpush
+   005E 21 00 08            170 	ld	hl,#0x0800
+   0061 E5                  171 	push	hl
+                            172 ;	genCall
+   0062 CD 00 00            173 	call	_set_sprite_data
+   0065 E8 04               174 	lda	sp,4(sp)
+                            175 ;	small_sprite.c 12
+                            176 ;	genIpush
+                            177 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   0067 21 00 00            178 	ld	hl,#0x0000
+   006A E5                  179 	push	hl
+                            180 ;	genCall
+   006B CD 00 00            181 	call	_set_sprite_tile
+   006E E8 02               182 	lda	sp,2(sp)
+                            183 ;	small_sprite.c 13
+                            184 ;	genIpush
+                            185 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   0070 21 64 64            186 	ld	hl,#0x6464
+   0073 E5                  187 	push	hl
+                            188 ;	genIpush
+   0074 3E 00               189 	ld	a,#0x00
+   0076 F5                  190 	push	af
+   0077 33                  191 	inc	sp
+                            192 ;	genCall
+   0078 CD 00 00            193 	call	_move_sprite
+   007B E8 03               194 	lda	sp,3(sp)
+                            195 ;	small_sprite.c 14
+                            196 ;	genAssign
+   007D 01 40 FF            197 	ld	bc,#0xFF40
+                            198 ;	genAssign
+                            199 ;	AOP_STK for _main_sloc0_1_0
+   0080 F8 01               200 	lda	hl,1(sp)
+   0082 36 40               201 	ld	(hl),#0x40
+   0084 23                  202 	inc	hl
+   0085 36 FF               203 	ld	(hl),#0xFF
+                            204 ;	genPointerGet
+                            205 ;	AOP_STK for _main_sloc0_1_0
+                            206 ;	AOP_STK for _main_sloc1_1_0
+   0087 2B                  207 	dec	hl
+   0088 5E                  208 	ld	e,(hl)
+   0089 23                  209 	inc	hl
+   008A 56                  210 	ld	d,(hl)
+   008B 1A                  211 	ld	a,(de)
+   008C 2B                  212 	dec	hl
+   008D 2B                  213 	dec	hl
+                            214 ;	genOr
+                            215 ;	AOP_STK for _main_sloc1_1_0
+   008E 77                  216 	ld      (hl),a
+   008F 7F                  217 	ld      a,a
+   0090 F6 02               218 	or	a,#0x02
+                            219 ;	genAssign (pointer)
+   0092 02                  220 	ld	(bc),a
+                            221 ;	genLabel
+   0093                     222 00101$:
+                            223 ;	genEndFunction
+   0093 E8 03               224 	lda	sp,3(sp)
+   0095 C9                  225 	ret
+   0096                     226 ___main_end:
+                            227 	.area _CODE
+ASxxxx Assembler V01.75  (GameBoy Z80-like CPU), page 1.
+
+Symbol Table
+
+  0 ___main_end                        0096 R
+  0 ___main_start                      0000 R
+    __initrleblock                     **** GX
+    _delay                             **** GX
+  0 _main                              0000 GR
+    _move_sprite                       **** GX
+    _set_sprite_data                   **** GX
+    _set_sprite_tile                   **** GX
+  1 _sprite                            0000 GR
+
+ASxxxx Assembler V01.75  (GameBoy Z80-like CPU), page 2.
+
+Area Table
+
+   0 _CODE                              size   96   flags 0
+   1 _DATA                              size   10   flags 0
+   2 _OVERLAY                           size    0   flags 0
+   3 _ISEG                              size    0   flags 0
+   4 _BSEG                              size    0   flags 0
+   5 _XSEG                              size    0   flags 0
+   6 _GSINIT                            size    9   flags 0
+   7 _GSFINAL                           size    0   flags 0
+   8 _HOME                              size    0   flags 0
