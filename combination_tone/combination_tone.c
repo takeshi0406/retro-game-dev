@@ -21,8 +21,8 @@ void main() {
         UBYTE joypad_state = joypad();
         
         if (joypad_state) {   
-            sound1(440);
-            sound2(480);
+            sound1(550);
+            sound2(440);
             delay(DELAY);
             break;
         }
