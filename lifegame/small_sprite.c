@@ -10,6 +10,6 @@ void main(){
 		
 	set_sprite_data(8, 8, sprite);
 	set_sprite_tile(2, 8);
-	move_sprite(2, 95, 75);
+	move_sprite(2, 55, 75);
     SHOW_SPRITES;
 }
