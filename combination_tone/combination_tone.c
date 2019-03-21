@@ -22,7 +22,7 @@ void main() {
         
         if (joypad_state) {   
             sound1(550);
-            sound2(440);
+            sound2(450);
             delay(DELAY);
             break;
         }
