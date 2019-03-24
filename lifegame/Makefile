@@ -1,8 +1,8 @@
 AS = lcc -c
 CC = lcc -Wa-l -Wl-m
 
-BIN = small_sprite.gb
-OBJS = small_sprite.o sprite.o
+BIN = lifegame.gb
+OBJS = lifegame.c
 
 all: $(BIN)
 
