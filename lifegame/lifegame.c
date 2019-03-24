@@ -3,16 +3,16 @@
 #include <gb/drawing.h>
 
 void main() {
-    UBYTE x1 = 20;
-    UBYTE y1 = 20;
-    UBYTE i = 0;
-    UBYTE j = 0;
+    UBYTE x1 = 4;
+    UWORD y1 = 4;
 
     color(BLACK, WHITE, SOLID);
 
-    for (i = 0; i < 10; i++) {
-        for (j = 0; j < 10; j++) {
-            circle(x1 + i * 8, y1 + j * 8, 2, M_FILL);
+    for (x1 = 4; x1 < 160; x1 += 8) {
+        line(x1, 4, x1, 152);
+        for (y1 = 4; y1 < 160; y1 += 8) {
+            line(4, y1, 152, y1);
+            circle(x1, y1, 2, M_FILL);
         }
     }
 }
