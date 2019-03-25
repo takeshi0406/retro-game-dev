@@ -10,19 +10,23 @@
 #define Y_MAX 140
 #define Y_NODES (Y_MAX - Y_MIN) / 8 + 1
 
-UBYTE map[X_NODES][Y_NODES] = {0};
+UBYTE current_map[X_NODES][Y_NODES] = {0};
+UBYTE next_map[X_NODES][Y_NODES] = {0};
 
 
 void init();
+void init_map();
 void update_map();
+UBYTE count_neighbors(UBYTE i, UBYTE j);
 void draw();
 
 void main() {
     init();
+    init_map();
     while (1) {
-        update_map();
         draw();
-        delay(200);
+        update_map();
+        delay(20);
     }
 }
 
@@ -48,25 +52,74 @@ void init() {
     }
 }
 
+void init_map() {
+    current_map[5][5] = 1;
+    current_map[5][6] = 1;
+    current_map[5][7] = 1;
+    current_map[6][6] = 1;
+    current_map[6][7] = 1;
+    current_map[6][8] = 1;
+}
+
 
 void update_map() {
-    map[20][2] = 1;
+    UBYTE i;
+    UBYTE j;
+    UBYTE count;
+    for (i = 0; i < X_NODES; i++) {
+        for (j = 0; j < Y_NODES; j++) {
+            count = count_neighbors(i, j);
+            if (current_map[i][j]) {
+                if (count <= 1 || count >= 4) {
+                    next_map[i][j] = 0;
+                } else {
+                    next_map[i][j] = 1;
+                }
+            } else {
+                if (count == 3) {
+                    next_map[i][j] = 1;
+                } else {
+                    next_map[i][j] = 0;
+                }
+            }
+        }
+    }
+
+    for (i = 0; i < X_NODES; i++) {
+        for (j = 0; j < Y_NODES; j++) {
+            current_map[i][j] = next_map[i][j];
+        }
+    }
+}
+
+UBYTE count_neighbors(UBYTE i, UBYTE j) {
+    UBYTE k;
+    UBYTE l;
+    UBYTE result = 0;
+    for (k = 0; k < 3; k++) {
+        for (l = 0; l < 3; l++) {
+            if (k == 1 && l == 1) continue;
+            if (i < k || i + k >= X_NODES) continue;
+            if (j < l || j + l >= Y_NODES) continue;
+            result += current_map[i + k - 1][j + l - 1];
+        }
+    }
+    return result;
 }
 
 void draw() {
     UBYTE i;
     UBYTE j;
     UBYTE c;
-    for (i = 0; i <= X_NODES; i++) {
-        for (j = 0; j <= Y_NODES; j++) {
-            if (map[i][j]) {
+    for (i = 0; i < X_NODES; i++) {
+        for (j = 0; j < Y_NODES; j++) {
+            if (current_map[i][j]) {
                 c = BLACK;
             } else {
                 c = WHITE;
             }
             color(c, WHITE, SOLID);
             circle(i * 8 + 4, j * 8 + 4, RADIUS, M_FILL);
-            delay(1);
         }
     }
 }
