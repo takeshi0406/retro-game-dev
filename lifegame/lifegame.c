@@ -1,6 +1,6 @@
-#include <stdio.h>
 #include <gb/gb.h>
 #include <gb/drawing.h>
+#include <rand.h>
 
 #define RADIUS 2
 #define X_MIN 4
@@ -26,7 +26,7 @@ void main() {
     while (1) {
         draw();
         update_map();
-        delay(20);
+        delay(2);
     }
 }
 
@@ -53,12 +53,12 @@ void init() {
 }
 
 void init_map() {
-    current_map[5][5] = 1;
-    current_map[5][6] = 1;
-    current_map[5][7] = 1;
-    current_map[6][6] = 1;
-    current_map[6][7] = 1;
-    current_map[6][8] = 1;
+    UBYTE i, j;
+    for (i = 0; i < X_NODES; i++) {
+        for (j = 0; j < Y_NODES; j++) {
+            current_map[i][j] = rand() % 2;
+        }
+    }
 }
 
 
@@ -99,8 +99,8 @@ UBYTE count_neighbors(UBYTE i, UBYTE j) {
     for (k = 0; k < 3; k++) {
         for (l = 0; l < 3; l++) {
             if (k == 1 && l == 1) continue;
-            if (i < k || i + k >= X_NODES) continue;
-            if (j < l || j + l >= Y_NODES) continue;
+            if (i + k == 0 || i + k >= X_NODES) continue;
+            if (j + l == 0 || j + l >= Y_NODES) continue;
             result += current_map[i + k - 1][j + l - 1];
         }
     }
