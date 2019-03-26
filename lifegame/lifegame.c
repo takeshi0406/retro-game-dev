@@ -19,16 +19,32 @@ void init_map();
 void update_map();
 UBYTE count_neighbors(UBYTE i, UBYTE j);
 void draw();
+enum State {
+    INPUT,
+    DRAW
+};
 
 void main() {
+    enum State state = INPUT;
     init();
-    init_map();
     while (1) {
-        draw();
-        update_map();
-        delay(2);
+        switch (state) {
+            case INPUT:
+                init_map();
+                draw();
+                state = (joypad() == J_START) ? DRAW : INPUT;
+                break;
+            case DRAW:
+                draw();
+                update_map();
+                state = (joypad() == J_B) ? INPUT : DRAW;
+                break;
+            default:
+                break;
+        }
     }
 }
+
 
 void init() {
     UBYTE x1;
