@@ -126,15 +126,9 @@ UBYTE count_neighbors(UBYTE i, UBYTE j) {
 void draw() {
     UBYTE i;
     UBYTE j;
-    UBYTE c;
     for (i = 0; i < X_NODES; i++) {
         for (j = 0; j < Y_NODES; j++) {
-            if (current_map[i][j]) {
-                c = BLACK;
-            } else {
-                c = WHITE;
-            }
-            color(c, WHITE, SOLID);
+            color(current_map[i][j] ? BLACK : WHITE, WHITE, SOLID);
             circle(i * 8 + 4, j * 8 + 4, RADIUS, M_FILL);
         }
     }
