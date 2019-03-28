@@ -12,6 +12,8 @@
 
 UBYTE current_map[X_NODES][Y_NODES] = {0};
 UBYTE next_map[X_NODES][Y_NODES] = {0};
+UBYTE i;
+UBYTE j;
 
 
 void init();
@@ -69,7 +71,6 @@ void init() {
 }
 
 void init_map() {
-    UBYTE i, j;
     for (i = 0; i < X_NODES; i++) {
         for (j = 0; j < Y_NODES; j++) {
             current_map[i][j] = rand() % 2;
@@ -79,8 +80,6 @@ void init_map() {
 
 
 void update_map() {
-    UBYTE i;
-    UBYTE j;
     UBYTE count;
     for (i = 0; i < X_NODES; i++) {
         for (j = 0; j < Y_NODES; j++) {
@@ -124,8 +123,6 @@ UBYTE count_neighbors(UBYTE i, UBYTE j) {
 }
 
 void draw() {
-    UBYTE i;
-    UBYTE j;
     for (i = 0; i < X_NODES; i++) {
         for (j = 0; j < Y_NODES; j++) {
             color(current_map[i][j] ? BLACK : WHITE, WHITE, SOLID);
