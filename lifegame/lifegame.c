@@ -12,8 +12,6 @@
 
 UBYTE current_map[X_NODES][Y_NODES] = {0};
 UBYTE next_map[X_NODES][Y_NODES] = {0};
-UBYTE i;
-UBYTE j;
 
 
 void init();
@@ -25,6 +23,7 @@ enum State {
     INPUT,
     DRAW
 };
+
 
 void main() {
     enum State state = INPUT;
@@ -49,8 +48,7 @@ void main() {
 
 
 void init() {
-    UBYTE x1;
-    UBYTE y1;
+    UBYTE x1, y1;
     for (x1 = X_MIN; x1 <= X_MAX; x1 += 8) {
         line(x1, Y_MIN, x1, Y_MAX);
         delay(16);
@@ -70,7 +68,9 @@ void init() {
     }
 }
 
+
 void init_map() {
+    UBYTE i, j;
     for (i = 0; i < X_NODES; i++) {
         for (j = 0; j < Y_NODES; j++) {
             current_map[i][j] = rand() % 2;
@@ -80,7 +80,7 @@ void init_map() {
 
 
 void update_map() {
-    UBYTE count;
+    UBYTE count, i, j;
     for (i = 0; i < X_NODES; i++) {
         for (j = 0; j < Y_NODES; j++) {
             count = count_neighbors(i, j);
@@ -107,9 +107,9 @@ void update_map() {
     }
 }
 
+
 UBYTE count_neighbors(UBYTE i, UBYTE j) {
-    UBYTE k;
-    UBYTE l;
+    UBYTE k, l;
     UBYTE result = 0;
     for (k = 0; k < 3; k++) {
         for (l = 0; l < 3; l++) {
@@ -122,7 +122,9 @@ UBYTE count_neighbors(UBYTE i, UBYTE j) {
     return result;
 }
 
+
 void draw() {
+    UBYTE i, j;
     for (i = 0; i < X_NODES; i++) {
         for (j = 0; j < Y_NODES; j++) {
             color(current_map[i][j] ? BLACK : WHITE, WHITE, SOLID);
