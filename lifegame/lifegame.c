@@ -18,7 +18,7 @@ void init(void);
 void init_map(void);
 void update_map(void);
 UBYTE count_neighbors(UBYTE i, UBYTE j);
-void draw();
+void draw(void);
 enum State {
     INPUT,
     DRAW
