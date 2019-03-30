@@ -14,9 +14,9 @@ UBYTE current_map[X_NODES][Y_NODES] = {0};
 UBYTE next_map[X_NODES][Y_NODES] = {0};
 
 
-void init();
-void init_map();
-void update_map();
+void init(void);
+void init_map(void);
+void update_map(void);
 UBYTE count_neighbors(UBYTE i, UBYTE j);
 void draw();
 enum State {
@@ -25,7 +25,7 @@ enum State {
 };
 
 
-void main() {
+int main(void) {
     enum State state = INPUT;
     init();
     while (1) {
@@ -47,7 +47,7 @@ void main() {
 }
 
 
-void init() {
+void init(void) {
     UBYTE x1, y1;
     for (x1 = X_MIN; x1 <= X_MAX; x1 += 8) {
         line(x1, Y_MIN, x1, Y_MAX);
@@ -69,7 +69,7 @@ void init() {
 }
 
 
-void init_map() {
+void init_map(void) {
     UBYTE i, j;
     for (i = 0; i < X_NODES; i++) {
         for (j = 0; j < Y_NODES; j++) {
@@ -79,7 +79,7 @@ void init_map() {
 }
 
 
-void update_map() {
+void update_map(void) {
     UBYTE count, i, j;
     for (i = 0; i < X_NODES; i++) {
         for (j = 0; j < Y_NODES; j++) {
@@ -123,7 +123,7 @@ UBYTE count_neighbors(UBYTE i, UBYTE j) {
 }
 
 
-void draw() {
+void draw(void) {
     UBYTE i, j;
     for (i = 0; i < X_NODES; i++) {
         for (j = 0; j < Y_NODES; j++) {
