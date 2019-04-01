@@ -114,9 +114,9 @@ UBYTE count_neighbors(UBYTE i, UBYTE j) {
     for (k = 0; k < 3; k++) {
         for (l = 0; l < 3; l++) {
             if (k == 1 && l == 1) continue;
-            // if (i + k == 0 || i + k >= X_NODES) continue;
-            // if (j + l == 0 || j + l >= Y_NODES) continue;
-            result += current_map[(i + k - 1) % X_NODES][(j + l - 1) % Y_NODES];
+            if (i + k == 0 || i + k >= X_NODES) continue;
+            if (j + l == 0 || j + l >= Y_NODES) continue;
+            result += current_map[i + k - 1][j + l - 1];
         }
     }
     return result;
