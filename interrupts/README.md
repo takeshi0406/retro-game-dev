@@ -1,4 +1,3 @@
 # interrupts
 
-Renders a small 8x8 sprite to the screen.
-
+割り込みのテスト
