@@ -9,10 +9,10 @@ void joy_isr(void);
 int main(void) {
     gprintf("1");
     gprintf("2");
-    // disable_interrupts();
+    disable_interrupts();
     add_JOY(joy_isr);
-    // enable_interrupts();
-    // set_interrupts(JOY_IFLAG);
+    enable_interrupts();
+    set_interrupts(JOY_IFLAG);
     gprintf("3");
     // see https://github.com/hschmitt/gbdk/blob/d7707bf2b3c5433edcd37d53a1475fd51a9b9502/examples-gb/irq.c
     /*
