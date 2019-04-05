@@ -1,0 +1,326 @@
+AREA .  .ABS.
+	RADIX HEX
+	BASE 0000
+	SIZE 0000
+	ATTRIB ABS OVR
+	GLOBALS
+		l__HEAP	0000
+		l__BSEG	0000
+		l_.  .ABS.	0000
+		l__GSFINAL	0000
+		l__ISEG	0000
+		s_.  .ABS.	0000
+		s__HEADER	0000
+		l__XSEG	0000
+		.init	0000
+		l__OVERLAY	0000
+		l__LIT	0000
+		l__GSINITTAIL	0001
+		l__GSINIT	0012
+		l__BSS	0089
+		l__HOME	01D3
+		l__HEADER	01EB
+		s__CODE	0200
+		l__DATA	02D1
+		l__CODE	0E0B
+		l__BASE	0E72
+		s__HOME	100B
+		s__BASE	11DE
+		s__LIT	2050
+		s__GSINIT	2050
+		s__GSINITTAIL	2062
+		s__GSFINAL	2063
+		.OAM	C000
+		s__DATA	C0A0
+		s__BSS	C371
+		s__HEAP	C3FA
+		s__BSEG	C3FA
+		s__ISEG	C3FA
+		s__XSEG	C3FA
+		s__OVERLAY	C3FA
+		.STACK	E000
+		.refresh_OAM	FF80
+AREA _CODE
+	RADIX HEX
+	BASE 0200
+	SIZE 0E0B
+	ATTRIB REL CON
+	GLOBALS
+		_main	0200
+		_onjoy	0285
+		_init	028B
+		_init_map	034C
+		_update_map	03CC
+		_count_neighbors	058A
+		_draw	0674
+		_rand	076D
+		_randw	076D
+		.adv_gcurs	0798
+		.circle	07B5
+		.horlin	0858
+		.verlin	0890
+		.circplot	08EC
+		.box	096A
+		.line	0A40
+		.xonly	0B61
+		.yonly	0CB0
+		.plot	0CD1
+		.wrbyte	0CEE
+		.getpix	0D70
+		.wrtchr	0DA5
+		_gotogxy	0E09
+		_wrtchr	0E14
+		_getpix	0E29
+		_color	0E35
+		_circle	0E44
+		_box	0E5E
+		_line	0E82
+		_plot_point	0E9A
+		_plot	0EAE
+		__divschar_rrx_s	0ECA
+		__divschar_rrx_hds	0ED1
+		__modschar_rrx_s	0ED8
+		__modschar_rrx_hds	0EDF
+		__divsint_rrx_s	0EE4
+		__divsint_rrx_hds	0EF0
+		__modsint_rrx_s	0EF8
+		__modsint_rrx_hds	0F04
+		__divuchar_rrx_s	0F0A
+		__divuchar_rrx_hds	0F11
+		__moduchar_rrx_s	0F18
+		__moduchar_rrx_hds	0F1F
+		__divuint_rrx_s	0F24
+		__divuint_rrx_hds	0F30
+		__moduint_rrx_s	0F38
+		__moduint_rrx_hds	0F44
+		.mod8	0F4A
+		.div8	0F4A
+		.mod16	0F52
+		.div16	0F52
+		.modu8	0F8C
+		.divu8	0F8C
+		.modu16	0F8F
+		.divu16	0F8F
+		_putchar	0FCC
+		_setchar	0FD5
+		_gotoxy	0FDE
+		_posx	0FE9
+		_posy	0FFA
+AREA _HEADER
+	RADIX HEX
+	BASE 0000
+	SIZE 01EB
+	ATTRIB ABS OVR
+	GLOBALS
+		_exit	01D2
+AREA _HOME
+	RADIX HEX
+	BASE 100B
+	SIZE 01D3
+	ATTRIB REL CON
+	GLOBALS
+		.set_mode	100B
+		.remove_VBL	101B
+		.remove_LCD	1021
+		.remove_TIM	1027
+		.remove_SIO	102D
+		.remove_JOY	1033
+		.add_VBL	1039
+		.add_LCD	103F
+		.add_TIM	1045
+		.add_SIO	104B
+		.add_JOY	1051
+		.remove_int	1057
+		.add_int	1077
+		.wait_vbl_done	1093
+		_wait_vbl_done	1093
+		_display_off	10AA
+		.display_off	10AA
+		.serial_IO	10CB
+		_mode	10FA
+		_get_mode	1103
+		_enable_interrupts	1108
+		_disable_interrupts	110A
+		_reset	110C
+		.reset	110C
+		_set_interrupts	1112
+		_remove_VBL	111D
+		_remove_LCD	1128
+		_remove_TIM	1133
+		_remove_SIO	113E
+		_remove_JOY	1149
+		_add_VBL	1154
+		_add_LCD	115F
+		_add_TIM	116A
+		_add_SIO	1175
+		_add_JOY	1180
+		_clock	118B
+		__printTStates	1194
+		banked_call	1195
+		banked_ret	11AE
+		__initrleblock	11B7
+AREA _BASE
+	RADIX HEX
+	BASE 11DE
+	SIZE 0E72
+	ATTRIB REL CON
+	GLOBALS
+		_initrand	11DE
+		.initrand	11E0
+		.gmode	11E9
+		.vbl	124B
+		.lcd	1256
+		.draw_image	1263
+		.switch_data	126D
+		_switch_data	12A4
+		_draw_image	12BF
+		.y_table	12D2
+		_font_load_ibm_fixed	13F2
+		_font_ibm_fixed	13F9
+		_font_ibm_fixed_tiles	14FB
+		.delay	1CFB
+		_delay	1D35
+		font_copy_uncompressed	1D3E
+		font_copy_compressed	1D74
+		font_load	1DC9
+		font_copy_current	1E11
+		font_set	1E59
+		.put_char	1E66
+		.out_char	1E7F
+		.del_char	1E86
+		_font_load	1EE1
+		_font_set	1EEF
+		_font_init	1EFE
+		_cls	1F20
+		.cls	1F20
+		.cr_curs	1F52
+		.adv_curs	1F67
+		.tmode	1FC3
+		.tmode_out	1FEC
+		.init_vram	1FFC
+		.init_wtt	200A
+		.init_btt	201A
+		.init_tt	2028
+		.copy_vram	202E
+		_get_data	203D
+		_set_data	203D
+AREA _LIT
+	RADIX HEX
+	BASE 2050
+	SIZE 0000
+	ATTRIB REL CON
+AREA _GSINIT
+	RADIX HEX
+	BASE 2050
+	SIZE 0012
+	ATTRIB REL CON
+	GLOBALS
+		gsinit	2050
+AREA _GSINITTAIL
+	RADIX HEX
+	BASE 2062
+	SIZE 0001
+	ATTRIB REL CON
+AREA _GSFINAL
+	RADIX HEX
+	BASE 2063
+	SIZE 0000
+	ATTRIB REL CON
+AREA _DATA
+	RADIX HEX
+	BASE C0A0
+	SIZE 02D1
+	ATTRIB REL CON
+	GLOBALS
+		_current_map	C0A0
+		_next_map	C208
+		_joy	C370
+AREA _BSS
+	RADIX HEX
+	BASE C371
+	SIZE 0089
+	ATTRIB REL CON
+	GLOBALS
+		__cpu	C371
+		.mode	C372
+		__io_out	C373
+		__io_in	C374
+		__io_status	C375
+		.vbl_done	C376
+		__current_bank	C377
+		_sys_time	C378
+		.sys_time	C378
+		.int_0x40	C37A
+		.int_0x48	C38A
+		.int_0x50	C39A
+		.int_0x58	C3AA
+		.int_0x60	C3BA
+		.randhi	C3CA
+		.randlo	C3CB
+		.fg_colour	C3CC
+		.bg_colour	C3CD
+		font_current	C3E2
+		font_first_free_tile	C3E5
+		font_table	C3E6
+		.curx	C3F8
+		.cury	C3F9
+AREA _HEAP
+	RADIX HEX
+	BASE C3FA
+	SIZE 0000
+	ATTRIB REL CON
+	GLOBALS
+		_malloc_heap_start	C3FA
+AREA _OVERLAY
+	RADIX HEX
+	BASE C3FA
+	SIZE 0000
+	ATTRIB REL CON
+AREA _ISEG
+	RADIX HEX
+	BASE C3FA
+	SIZE 0000
+	ATTRIB REL CON
+AREA _BSEG
+	RADIX HEX
+	BASE C3FA
+	SIZE 0000
+	ATTRIB REL CON
+AREA _XSEG
+	RADIX HEX
+	BASE C3FA
+	SIZE 0000
+	ATTRIB REL CON
+MODULES
+	FILE /usr/local/Cellar/gbdk/HEAD-0d4a435/libexec/lib/small/asxxxx/gb/crt0.o
+		NAME Runtime
+	FILE /var/folders/fl/qnqz2l457m19_p96zpphwj5m0000gn/T/lcc79572.o
+		NAME lcc79570
+LIBRARIES
+	LIBRARY /usr/local/Cellar/gbdk/HEAD-0d4a435/libexec/lib/small/asxxxx/gbz80/gbz80.lib
+		MODULE crt0_rle.o
+	LIBRARY /usr/local/Cellar/gbdk/HEAD-0d4a435/libexec/lib/small/asxxxx/gb/gb.lib
+		MODULE rand.o
+	LIBRARY /usr/local/Cellar/gbdk/HEAD-0d4a435/libexec/lib/small/asxxxx/gb/gb.lib
+		MODULE drawing.o
+	LIBRARY /usr/local/Cellar/gbdk/HEAD-0d4a435/libexec/lib/small/asxxxx/gb/gb.lib
+		MODULE ibmfixed.o
+	LIBRARY /usr/local/Cellar/gbdk/HEAD-0d4a435/libexec/lib/small/asxxxx/gbz80/gbz80.lib
+		MODULE div.o
+	LIBRARY /usr/local/Cellar/gbdk/HEAD-0d4a435/libexec/lib/small/asxxxx/gb/gb.lib
+		MODULE delay.o
+	LIBRARY /usr/local/Cellar/gbdk/HEAD-0d4a435/libexec/lib/small/asxxxx/gb/gb.lib
+		MODULE font.o
+	LIBRARY /usr/local/Cellar/gbdk/HEAD-0d4a435/libexec/lib/small/asxxxx/gb/gb.lib
+		MODULE init_tt.o
+	LIBRARY /usr/local/Cellar/gbdk/HEAD-0d4a435/libexec/lib/small/asxxxx/gb/gb.lib
+		MODULE cpy_data.o
+USERBASEDEF
+	_CODE=0x0200
+	_DATA=0xC0A0
+	_CODE_1=0x4000
+USERGLOBALDEF
+	.OAM=0xC000
+	.STACK=0xE000
+	.refresh_OAM=0xFF80
+	.init=0x0000
