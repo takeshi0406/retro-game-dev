@@ -12,7 +12,6 @@
 
 UBYTE current_map[X_NODES][Y_NODES] = {0};
 UBYTE next_map[X_NODES][Y_NODES] = {0};
-UBYTE joy;
 
 
 void init(void);
@@ -25,26 +24,25 @@ enum State {
     INPUT,
     DRAW
 };
+enum State state = INPUT;
 
 
 int main(void) {
-    enum State state = INPUT;
     disable_interrupts();
     add_JOY(onjoy);
     enable_interrupts();
     set_interrupts(JOY_IFLAG);
+    line(16, 4, 16, 140);
     init();
     while (1) {
         switch (state) {
             case INPUT:
                 init_map();
                 draw();
-                state = (joy == J_START) ? DRAW : INPUT;
                 break;
             case DRAW:
                 draw();
                 update_map();
-                state = (joy == J_B) ? INPUT : DRAW;
                 break;
             default:
                 break;
@@ -54,7 +52,16 @@ int main(void) {
 
 
 void onjoy(void) {
-    joy = 1;
+    switch (state) {
+        case INPUT:
+            state = DRAW;
+            break;
+        case DRAW:
+            state = INPUT;
+            break;
+        default:
+            break;
+    }
 }
 
 
