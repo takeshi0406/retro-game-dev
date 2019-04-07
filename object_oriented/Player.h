@@ -10,5 +10,4 @@ typedef struct _Player {
 void Player_Init(Player * player, UBYTE x, UBYTE y);
 void Player_Draw(Player * player);
 
-
 #endif
