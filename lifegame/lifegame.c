@@ -24,42 +24,26 @@ enum State {
     INPUT,
     DRAW
 };
-enum State state = INPUT;
 
 
 int main(void) {
-    disable_interrupts();
-    add_JOY(onjoy);
-    enable_interrupts();
-    set_interrupts(JOY_IFLAG);
+    enum State state = INPUT;
     init();
     while (1) {
         switch (state) {
             case INPUT:
                 init_map();
                 draw();
+                state = (joypad() != J_START) ? state : DRAW;
                 break;
             case DRAW:
                 draw();
                 update_map();
+                state = (joypad() != J_B) ? state : INPUT;
                 break;
             default:
                 break;
         }
-    }
-}
-
-
-void onjoy(void) {
-    switch (state) {
-        case INPUT:
-            state = DRAW;
-            break;
-        case DRAW:
-            state = INPUT;
-            break;
-        default:
-            break;
     }
 }
 
