@@ -32,7 +32,6 @@ int main(void) {
     add_JOY(onjoy);
     enable_interrupts();
     set_interrupts(JOY_IFLAG);
-    line(16, 4, 16, 140);
     init();
     while (1) {
         switch (state) {
