@@ -2,7 +2,7 @@ AS = lcc -c
 CC = lcc -Wa-l -Wl-m
 
 BIN = object_oriented.gb
-OBJS = object_oriented.c
+OBJS = object_oriented.c Player.c
 
 all: $(BIN)
 
@@ -13,4 +13,4 @@ $(BIN): $(OBJS)
 	$(CC) -o $(BIN) $(OBJS)
 
 clean:
-	rm -rf *.o *.h *.map *.gbr *.lst *.gb *~
+	rm -rf *.o *.map *.gbr *.lst *.gb *~
