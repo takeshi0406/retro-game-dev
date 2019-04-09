@@ -7,6 +7,6 @@ typedef struct _Player {
 } Player;
 
 void Player_Init(Player *player, UBYTE x, UBYTE y);
-void Player_Draw(Player *player);
+void Player_Move(Player *player, UBYTE dx, UBYTE dy);
 
 #endif
