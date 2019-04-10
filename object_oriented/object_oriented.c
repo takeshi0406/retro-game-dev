@@ -3,15 +3,21 @@
 #include <rand.h>
 #include <stdio.h>
 
+Player players[10];
+
 
 int main(void) {
-    Player player;
-    UBYTE dx, dy;
-    Player_Init(&player, 5, 5);
-    while (1) {
-        dx = rand() % 3;
-        dy = rand() % 3;
-        Player_Move(&player, dx, dy);
+    UBYTE i, dx, dy;
+    for (i = 0; i < 10; i++) {
+        Player_Init(&players[i], 5, 5);
+    }
+    for (;;) {
+        for (i = 0; i < 10; i++) {
+            // ここでマイナスになる理由を調べる
+            dx = rand() % 3;
+            dy = rand() % 3;
+            Player_Move(&players[i], dx, dy);
+        }
         delay(10);
     }
 }
