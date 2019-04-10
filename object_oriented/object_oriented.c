@@ -1,12 +1,17 @@
 #include "Player.h"
 #include <gb/gb.h>
 #include <rand.h>
+#include <stdio.h>
+
 
 int main(void) {
     Player player;
-    Player_Init(&player, 1, 2);
+    UBYTE dx, dy;
+    Player_Init(&player, 5, 5);
     while (1) {
-        Player_Move(&player, 1, 1);
-        delay(100);
+        dx = rand() % 3;
+        dy = rand() % 3;
+        Player_Move(&player, dx, dy);
+        delay(10);
     }
 }
