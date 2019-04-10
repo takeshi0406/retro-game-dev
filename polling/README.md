@@ -1,3 +1,3 @@
-# interrupts
+# polling
 
-割り込みのテスト
+ポーリングのテスト
