@@ -3,13 +3,9 @@
 #include <stdio.h>
 
 
-UWORD count;
-UWORD known;
-void joy_isr(void);
-
 int main(void) {
-    count = 0;
-    known = 0;
+    UWORD count = 0;
+    UWORD known = 0;
 
     for (;;) {
         if (joypad() == J_A) {
