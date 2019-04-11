@@ -3,7 +3,7 @@
 #include <rand.h>
 #include <stdio.h>
 
-Player players[10];
+static Player players[10];
 
 
 int main(void) {
