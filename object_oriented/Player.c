@@ -11,16 +11,16 @@
 #define Y_NODES (Y_MAX - Y_MIN) / 8 + 1
 
 
-void Player_Init(Player *player, UBYTE x, UBYTE y) {
+void Player_Init(const Player *player, const UBYTE x, const UBYTE y) {
     player->x = x * 8 + 4;
     player->y = y * 8 + 4;
     color(BLACK, WHITE, SOLID);
     circle(player->x, player->y, RADIUS, M_FILL);
 }
 
-void Player_Move(Player *player, UBYTE dx, UBYTE dy) {
-    UBYTE u_x = player->x + (dx * 8);
-    UBYTE u_y = player->y + (dy * 8);
+void Player_Move(const Player *player, const UBYTE dx, const UBYTE dy) {
+    const UBYTE u_x = player->x + (dx * 8);
+    const UBYTE u_y = player->y + (dy * 8);
     color(WHITE, WHITE, SOLID);
     circle(player->x, player->y, RADIUS, M_FILL);
     if (X_MIN < u_x && u_x < X_MAX) {

@@ -6,7 +6,7 @@ typedef struct _Player {
     UBYTE x, y;
 } Player;
 
-void Player_Init(Player *player, UBYTE x, UBYTE y);
-void Player_Move(Player *player, UBYTE dx, UBYTE dy);
+void Player_Init(const Player *player, const UBYTE x, const UBYTE y);
+void Player_Move(const Player *player, const UBYTE dx, const UBYTE dy);
 
 #endif
