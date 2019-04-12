@@ -2,7 +2,7 @@ AS = lcc -c
 CC = lcc -Wa-l -Wl-m
 
 BIN = suumo.gb
-OBJS = suumo.c ufo.c
+OBJS = suumo.c Player.c
 
 all: $(BIN)
 
