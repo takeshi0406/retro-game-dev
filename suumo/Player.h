@@ -5,9 +5,7 @@
 #define ufoBank 0
 
 typedef struct _Player {
-    UBYTE i;
-    UBYTE x;
-    UBYTE y;
+    UBYTE i, x, y;
 } Player;
 
 void Player_init(Player* player, UBYTE i, UBYTE x, UBYTE y);
