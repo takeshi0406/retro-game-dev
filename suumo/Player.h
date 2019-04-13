@@ -9,6 +9,6 @@ typedef struct _Player {
 } Player;
 
 void Player_init(Player* player, UBYTE i, UBYTE x, UBYTE y);
-void Player_move(Player* player);
+void Player_move(Player* player, UBYTE joystate);
 
 #endif
