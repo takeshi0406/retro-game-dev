@@ -20,6 +20,10 @@ void Player_init(Player* player, UBYTE i, UBYTE x, UBYTE y) {
 }
 
 void Player_move(Player* player, UBYTE joystate) {
+    if (!joystate) {
+        return;
+    }
+
     if (joystate & J_RIGHT) player->x++;
     else if (joystate & J_LEFT) player->x--;
 

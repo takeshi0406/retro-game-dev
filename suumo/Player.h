@@ -2,7 +2,6 @@
 #define _PLAYER_H_INCLUDED_
 
 #include <gb/gb.h>
-#define ufoBank 0
 
 typedef struct _Player {
     UBYTE i, x, y;
