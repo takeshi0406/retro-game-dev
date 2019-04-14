@@ -5,10 +5,9 @@
 
 
 Sound sound;
+UWORD count = 0;
 void update_music(void) {
-    //printf("test");
-    beep(1000);
-    //Sound_play(&sound);
+    Sound_play(&sound);
 }
 
 int main(void) {
@@ -16,11 +15,13 @@ int main(void) {
     Player_init(&player, 0, 50, 75);
     Sound_init(&sound);
 
-    // 初期化
     disable_interrupts();
     add_TIM(update_music);
-    set_interrupts(TIM_IFLAG);
     enable_interrupts();
+    TMA_REG = 0x00U;
+    /* Set clock to 4096 Hertz */
+    TAC_REG = 0x04U;
+    set_interrupts(VBL_IFLAG | TIM_IFLAG);
 
     for (;;) {
         Player_move(&player, joypad());
