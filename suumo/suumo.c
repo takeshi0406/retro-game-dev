@@ -5,23 +5,15 @@
 
 
 Sound sound;
-UWORD count = 0;
-void update_music(void) {
-    Sound_play(&sound);
-}
+UWORD count;
+void update_music(void);
+void init_interrupts(void);
+
 
 int main(void) {
     Player player;
     Player_init(&player, 0, 50, 75);
-    Sound_init(&sound);
-
-    disable_interrupts();
-    add_TIM(update_music);
-    enable_interrupts();
-    TMA_REG = 0x00U;
-    /* Set clock to 4096 Hertz */
-    TAC_REG = 0x04U;
-    set_interrupts(VBL_IFLAG | TIM_IFLAG);
+    init_interrupts();
 
     for (;;) {
         Player_move(&player, joypad());
@@ -29,4 +21,22 @@ int main(void) {
 }
 
 
+void init_interrupts(void) {
+    Sound_init(&sound);
+    disable_interrupts();
+    add_TIM(update_music);
+    enable_interrupts();
+    TMA_REG = 0x00U;
+    /* Set clock to 4096 Hertz */
+    TAC_REG = 0x04U;
+    set_interrupts(VBL_IFLAG | TIM_IFLAG);
+}
 
+
+void update_music(void) {
+    count++;
+    if (count > 0x04U) {
+        Sound_play(&sound);
+        count = 0;
+    }
+}
