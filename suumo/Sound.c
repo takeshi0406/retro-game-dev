@@ -2,7 +2,10 @@
 #include <gb/gb.h>
 
 static const UWORD score[] = {
-    1024, 1024, 1379, 1379
+    1379, 1379, 1452, 1452,
+    1339, 1339, 1452, 1452,
+    1517, 1452, 1379, 1339,
+    1339, 1379, 1452, 0
 };
 
 
@@ -16,8 +19,8 @@ void Sound_init(Sound* sound) {
 
 
 void Sound_play(Sound* sound) {
-    beep(score[sound->i]);
-    if (sound->i < 4) {
+    if (score[sound->i]) beep(score[sound->i]);
+    if (sound->i < 15) {
         sound->i++;
     } else {
         sound->i = 0;
