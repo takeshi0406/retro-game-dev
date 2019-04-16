@@ -5,7 +5,11 @@ static const UWORD score[] = {
     1379, 1379, 1452, 1452,
     1339, 1339, 1452, 1452,
     1517, 1452, 1379, 1339,
-    1339, 1379, 1452, 0
+    1339, 1379, 1452, 0,
+    1379, 1379, 1452, 1452,
+    1339, 1339, 1452, 1452,
+    1517, 1452, 1379, 1339,
+    1339, 1297, 1339, 0
 };
 
 
@@ -19,10 +23,12 @@ void Sound_init(Sound* sound) {
 
 
 void Sound_play(Sound* sound) {
-    if (score[sound->i]) beep(score[sound->i]);
-    if (sound->i < 15) {
-        sound->i++;
-    } else {
+    if (score[sound->i]) {
+        beep(score[sound->i]);
+    }
+    sound->i++;
+
+    if (sound->i > 31) {
         sound->i = 0;
     }
 }
