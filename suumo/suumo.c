@@ -13,7 +13,10 @@ void init_interrupts(void);
 int main(void) {
     Player player;
     Player_init(&player, 0, 50, 75);
+
+    Sound_intro(&sound);
     init_interrupts();
+
 
     for (;;) {
         Player_move(&player, joypad());

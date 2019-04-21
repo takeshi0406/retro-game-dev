@@ -8,6 +8,7 @@ typedef struct _Sound {
 } Sound;
 
 void Sound_init(Sound* sound);
+void Sound_intro(Sound* sound);
 void Sound_play(Sound* sound);
 void beep(UWORD f);
 
