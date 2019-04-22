@@ -19,19 +19,29 @@ void Sound_init(Sound* sound) {
     NR52_REG = 0x80;
     NR50_REG = 0x77;
     NR51_REG = 0xFF;
-
-    // ノイズチャンネル
-    NR52_REG = 0x80;
-    NR50_REG = 0x77;
-    NR51_REG = 0xFF;
 }
 
 void Sound_intro(Sound* sound) {
     NR41_REG = 0x1F;
     NR42_REG = 0xF1;
-    NR43_REG = 0x30;
+    NR43_REG = 0x35;
     NR44_REG = 0xC0;
-    delay(10000);
+    delay(500);
+    NR41_REG = 0x1F;
+    NR42_REG = 0xF1;
+    NR43_REG = 0x35;
+    NR44_REG = 0xC0;
+    delay(500);
+    NR41_REG = 0x1F;
+    NR42_REG = 0xF1;
+    NR43_REG = 0x35;
+    NR44_REG = 0xC0;
+    delay(500);
+    NR41_REG = 0x1F;
+    NR42_REG = 0xE1;
+    NR43_REG = 0x40;
+    NR44_REG = 0xC0;
+    delay(240);
 }
 
 

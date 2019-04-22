@@ -14,6 +14,7 @@ int main(void) {
     Player player;
     Player_init(&player, 0, 50, 75);
 
+    Sound_init(&sound);
     Sound_intro(&sound);
     init_interrupts();
 
@@ -25,7 +26,6 @@ int main(void) {
 
 
 void init_interrupts(void) {
-    Sound_init(&sound);
     disable_interrupts();
     add_TIM(update_music);
     enable_interrupts();
