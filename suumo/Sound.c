@@ -37,10 +37,10 @@ void Sound_intro(Sound* sound) {
     NR43_REG = 0x35;
     NR44_REG = 0xC0;
     delay(500);
-    NR41_REG = 0x1F;
-    NR42_REG = 0xE1;
+    NR41_REG = 0x07;
+    NR42_REG = 0xC5;
     NR43_REG = 0x40;
-    NR44_REG = 0xC0;
+    NR44_REG = 0xF0;
     delay(240);
 }
 

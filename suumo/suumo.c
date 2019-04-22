@@ -38,7 +38,7 @@ void init_interrupts(void) {
 
 void update_music(void) {
     count++;
-    if (count > 0x04U) {
+    if (count > 0x03U) {
         Sound_play(&sound);
         count = 0;
     }
