@@ -12,22 +12,22 @@ static const UWORD score1[] = {
     1339, 1297, 1339, 0
 };
 static const UWORD score2[] = {
-    1253,    0,  854, 0,
-    1253,    0,  854, 0,
-    1253,    0,  854, 0,
-    1253,    0,  854, 0,
-    1253,    0,  854, 0,
-    1253,    0,  854, 0,
-    1253,    0,  854, 0,
-    1253,    0,  854, 0,
+    1253,    0,  854,    0,
+    1155,    0,  854,    0,
+    1253,    0,  854,    0,
+    1155, 1102, 1046, 1155,
+    1253,    0,  854,    0,
+    1155,    0,  854,    0,
+    1253,    0,  854,    0,
+    1102,    0, 1102, 1155,
 };
 
 
 void Sound_init(Sound* sound) {
     sound->i = 0;
     // initial register
-    NR52_REG = 0xFF;
-    NR50_REG = 0xFF;
+    NR52_REG = 0x80;
+    NR50_REG = 0x77;
     NR51_REG = 0xFF;
 }
 
@@ -58,6 +58,8 @@ void Sound_intro() {
 void Sound_play(Sound* sound) {
     if (score1[sound->i]) {
         beep1(score1[sound->i]);
+    }
+    if (score2[sound->i]) {
         beep2(score2[sound->i]);
     }
     sound->i++;
