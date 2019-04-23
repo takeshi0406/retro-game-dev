@@ -15,7 +15,7 @@ int main(void) {
     Player_init(&player, 0, 50, 75);
 
     Sound_init(&sound);
-    Sound_intro(&sound);
+    Sound_intro();
     init_interrupts();
 
 
