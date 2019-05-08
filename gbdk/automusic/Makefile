@@ -2,7 +2,7 @@ AS = lcc -c
 CC = lcc -Wa-l -Wl-m
 
 BIN = automusic.gb
-OBJS = main.c
+OBJS = main.c piece.c
 
 all: $(BIN)
 
