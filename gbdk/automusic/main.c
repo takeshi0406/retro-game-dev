@@ -1,6 +1,7 @@
 #include <gb/gb.h>
 #include <stdio.h>
 #include <piece.h>
+#include <sound.h>
 
 
 int main(void) {
