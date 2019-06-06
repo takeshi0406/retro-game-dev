@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <piece.h>
 #include <sound.h>
+#include <board.h>
 
 
 
