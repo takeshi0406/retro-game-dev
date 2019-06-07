@@ -1,5 +1,7 @@
 #include "board.h"
+#include "piece.h"
+
 
 void Board_init(Board* board) {
-    return;
+    Piece_init(&(board->piece1));
 }
