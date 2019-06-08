@@ -8,5 +8,6 @@ typedef struct _Board {
 } Board;
 
 void Board_init(Board* board);
+void Board_update(Board* board);
 
 #endif

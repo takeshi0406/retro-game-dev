@@ -13,20 +13,16 @@ void init_interrupts(void);
 
 
 int main(void) {
-    Piece piece[2];
+    Board board;
+    Board_init(&board);
 
     init_interrupts();
-    Piece_init(&piece[0], 0, 50, 50);
-    Piece_init(&piece[1], 1, 55, 55);
     for (;;) {
-        Piece_move(&piece[0], 1, 0);
-        Piece_move(&piece[1], 1, 0);
-        delay(100);
-        Piece_move(&piece[0], -1, 0);
-        Piece_move(&piece[1], -1, 0);
-        delay(100);
+        Board_update(&board);
+        delay(10);
     }
 }
+
 
 void init_interrupts(void) {
     Sound_init(&sound);

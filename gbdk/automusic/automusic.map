@@ -1,0 +1,238 @@
+AREA .  .ABS.
+	RADIX HEX
+	BASE 0000
+	SIZE 0000
+	ATTRIB ABS OVR
+	GLOBALS
+		l__HEAP	0000
+		l__BSEG	0000
+		l_.  .ABS.	0000
+		l__GSFINAL	0000
+		l__ISEG	0000
+		s_.  .ABS.	0000
+		s__HEADER	0000
+		l__XSEG	0000
+		.init	0000
+		l__OVERLAY	0000
+		l__LIT	0000
+		l__GSINIT	0000
+		l__GSINITTAIL	0001
+		l__DATA	0005
+		l__BSS	0059
+		l__BASE	0115
+		l__HOME	01AC
+		l__HEADER	01E1
+		s__CODE	0200
+		l__CODE	0352
+		s__HOME	0552
+		s__BASE	06FE
+		s__GSINITTAIL	0813
+		s__LIT	0813
+		s__GSINIT	0813
+		s__GSFINAL	0814
+		.OAM	C000
+		s__DATA	C0A0
+		s__BSS	C0A5
+		s__HEAP	C0FE
+		s__BSEG	C0FE
+		s__ISEG	C0FE
+		s__XSEG	C0FE
+		s__OVERLAY	C0FE
+		.STACK	E000
+		.refresh_OAM	FF80
+AREA _CODE
+	RADIX HEX
+	BASE 0200
+	SIZE 0352
+	ATTRIB REL CON
+	GLOBALS
+		_main	0200
+		_init_interrupts	022C
+		_update_music	025A
+		_Piece_init	0281
+		_sprite	032B
+		_Piece_move	033B
+		_Sound_init	0393
+		_Sound_play	042E
+		_beep1	04B6
+		_beep2	04F5
+		_Board_init	052E
+		_Board_update	0542
+AREA _HEADER
+	RADIX HEX
+	BASE 0000
+	SIZE 01E1
+	ATTRIB ABS OVR
+	GLOBALS
+		_exit	01D2
+AREA _HOME
+	RADIX HEX
+	BASE 0552
+	SIZE 01AC
+	ATTRIB REL CON
+	GLOBALS
+		.set_mode	0552
+		.remove_VBL	0562
+		.remove_LCD	0568
+		.remove_TIM	056E
+		.remove_SIO	0574
+		.remove_JOY	057A
+		.add_VBL	0580
+		.add_LCD	0586
+		.add_TIM	058C
+		.add_SIO	0592
+		.add_JOY	0598
+		.remove_int	059E
+		.add_int	05BE
+		.wait_vbl_done	05DA
+		_wait_vbl_done	05DA
+		_display_off	05F1
+		.display_off	05F1
+		.serial_IO	0612
+		_mode	0641
+		_get_mode	064A
+		_enable_interrupts	064F
+		_disable_interrupts	0651
+		_reset	0653
+		.reset	0653
+		_set_interrupts	0659
+		_remove_VBL	0664
+		_remove_LCD	066F
+		_remove_TIM	067A
+		_remove_SIO	0685
+		_remove_JOY	0690
+		_add_VBL	069B
+		_add_LCD	06A6
+		_add_TIM	06B1
+		_add_SIO	06BC
+		_add_JOY	06C7
+		_clock	06D2
+		__printTStates	06DB
+		banked_call	06DC
+		banked_ret	06F5
+AREA _BASE
+	RADIX HEX
+	BASE 06FE
+	SIZE 0115
+	ATTRIB REL CON
+	GLOBALS
+		.mv_sprite	06FE
+		_move_sprite	070D
+		_set_win_data	071A
+		_set_bkg_data	071A
+		_set_sprite_data	0767
+		.set_sprite_tile	0796
+		_set_sprite_tile	07A3
+		.delay	07AE
+		_delay	07E8
+		.copy_vram	07F1
+		_get_data	0800
+		_set_data	0800
+AREA _LIT
+	RADIX HEX
+	BASE 0813
+	SIZE 0000
+	ATTRIB REL CON
+AREA _GSINIT
+	RADIX HEX
+	BASE 0813
+	SIZE 0000
+	ATTRIB REL CON
+	GLOBALS
+		gsinit	0813
+AREA _GSINITTAIL
+	RADIX HEX
+	BASE 0813
+	SIZE 0001
+	ATTRIB REL CON
+AREA _GSFINAL
+	RADIX HEX
+	BASE 0814
+	SIZE 0000
+	ATTRIB REL CON
+AREA _DATA
+	RADIX HEX
+	BASE C0A0
+	SIZE 0005
+	ATTRIB REL CON
+	GLOBALS
+		_sound	C0A0
+		_count	C0A1
+AREA _BSS
+	RADIX HEX
+	BASE C0A5
+	SIZE 0059
+	ATTRIB REL CON
+	GLOBALS
+		__cpu	C0A5
+		.mode	C0A6
+		__io_out	C0A7
+		__io_in	C0A8
+		__io_status	C0A9
+		.vbl_done	C0AA
+		__current_bank	C0AB
+		_sys_time	C0AC
+		.sys_time	C0AC
+		.int_0x40	C0AE
+		.int_0x48	C0BE
+		.int_0x50	C0CE
+		.int_0x58	C0DE
+		.int_0x60	C0EE
+AREA _HEAP
+	RADIX HEX
+	BASE C0FE
+	SIZE 0000
+	ATTRIB REL CON
+	GLOBALS
+		_malloc_heap_start	C0FE
+AREA _OVERLAY
+	RADIX HEX
+	BASE C0FE
+	SIZE 0000
+	ATTRIB REL CON
+AREA _ISEG
+	RADIX HEX
+	BASE C0FE
+	SIZE 0000
+	ATTRIB REL CON
+AREA _BSEG
+	RADIX HEX
+	BASE C0FE
+	SIZE 0000
+	ATTRIB REL CON
+AREA _XSEG
+	RADIX HEX
+	BASE C0FE
+	SIZE 0000
+	ATTRIB REL CON
+MODULES
+	FILE /usr/local/Cellar/gbdk/HEAD-0d4a435/libexec/lib/small/asxxxx/gb/crt0.o
+		NAME Runtime
+	FILE /var/folders/fl/qnqz2l457m19_p96zpphwj5m0000gn/T/lcc49912.o
+		NAME lcc49910
+	FILE /var/folders/fl/qnqz2l457m19_p96zpphwj5m0000gn/T/lcc49913.o
+		NAME lcc49910
+	FILE /var/folders/fl/qnqz2l457m19_p96zpphwj5m0000gn/T/lcc49914.o
+		NAME lcc49910
+	FILE /var/folders/fl/qnqz2l457m19_p96zpphwj5m0000gn/T/lcc49915.o
+		NAME lcc49910
+LIBRARIES
+	LIBRARY /usr/local/Cellar/gbdk/HEAD-0d4a435/libexec/lib/small/asxxxx/gb/gb.lib
+		MODULE mv_spr.o
+	LIBRARY /usr/local/Cellar/gbdk/HEAD-0d4a435/libexec/lib/small/asxxxx/gb/gb.lib
+		MODULE set_data.o
+	LIBRARY /usr/local/Cellar/gbdk/HEAD-0d4a435/libexec/lib/small/asxxxx/gb/gb.lib
+		MODULE set_spr.o
+	LIBRARY /usr/local/Cellar/gbdk/HEAD-0d4a435/libexec/lib/small/asxxxx/gb/gb.lib
+		MODULE delay.o
+	LIBRARY /usr/local/Cellar/gbdk/HEAD-0d4a435/libexec/lib/small/asxxxx/gb/gb.lib
+		MODULE cpy_data.o
+USERBASEDEF
+	_CODE=0x0200
+	_DATA=0xC0A0
+	_CODE_1=0x4000
+USERGLOBALDEF
+	.OAM=0xC000
+	.STACK=0xE000
+	.refresh_OAM=0xFF80
+	.init=0x0000
