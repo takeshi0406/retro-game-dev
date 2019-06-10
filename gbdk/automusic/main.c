@@ -19,7 +19,7 @@ int main(void) {
     init_interrupts();
     for (;;) {
         Board_update(&board);
-        delay(10);
+        delay(100);
     }
 }
 
