@@ -16,7 +16,7 @@ int main(void) {
     Board board;
     Board_init(&board);
 
-    init_interrupts();
+    //init_interrupts();
     for (;;) {
         Board_update(&board);
         delay(100);
