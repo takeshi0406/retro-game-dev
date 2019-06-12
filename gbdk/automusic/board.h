@@ -5,7 +5,8 @@
 
 typedef struct _Board {
     Piece piece1;
-    UBYTE t;
+    UBYTE dx;
+    UBYTE dy;
 } Board;
 
 void Board_init(Board* board);
