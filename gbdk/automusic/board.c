@@ -12,18 +12,25 @@
 void Board_init(Board* board) {
     UBYTE x1, y1;
     Piece_init(&(board->piece1), 0, X_MIN + 8, Y_MIN + 16);
+    board->t = 0;
 
     for (x1 = X_MIN; x1 <= X_MAX; x1 += 16) {
         line(x1, Y_MIN, x1, Y_MAX);
-        delay(16);
     }
 
     for (y1 = Y_MIN; y1 <= Y_MAX; y1 += 16) {
         line(X_MIN, y1, X_MAX, y1);
-        delay(16);
     }
 }
 
 void Board_update(Board* board) {
-    Piece_move(&(board->piece1), 16, 16);
+    switch (board->t % 2){
+        case 0:
+            Piece_move(&(board->piece1), 16, 16);
+            break;
+        default:
+            Piece_move(&(board->piece1), -16, -16);
+            break;
+    }
+    board->t++;
 }
