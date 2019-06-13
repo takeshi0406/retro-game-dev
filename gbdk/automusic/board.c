@@ -6,7 +6,8 @@
 
 void Board_init(Board* board) {
     UBYTE x1, y1;
-    Piece_init(&(board->piece1), 0, 0, 0, 0, -1);
+    Piece_init(&(board->piece1), 0, 0, 0, -1);
+    Piece_init(&(board->piece2), 1, 1, 0, -1);
 
     for (x1 = X_MIN; x1 <= X_MAX; x1 += 16) {
         line(x1, Y_MIN, x1, Y_MAX);
@@ -20,4 +21,5 @@ void Board_init(Board* board) {
 
 void Board_update(Board* board) {
     Piece_move(&(board->piece1));
+    Piece_move(&(board->piece2));
 }

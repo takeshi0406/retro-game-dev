@@ -5,6 +5,7 @@
 
 typedef struct _Board {
     Piece piece1;
+    Piece piece2;
     UBYTE dx;
     UBYTE dy;
 } Board;

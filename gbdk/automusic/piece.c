@@ -13,12 +13,13 @@ const unsigned char sprite[] = {
     0xFF, 0xFF, 0xFF, 0xFF,
     0xF0, 0xFF, 0xFF, 0xFF
 };
+UBYTE i = 0;
 
 
-void Piece_init(Piece* piece, UBYTE i, UBYTE x, UBYTE y, UBYTE dx, UBYTE dy) {
+void Piece_init(Piece* piece, UBYTE x, UBYTE y, UBYTE dx, UBYTE dy) {
     piece->i = i * 1;
-    piece->x = x;
-    piece->y = y;
+    piece->x = x * 1;
+    piece->y = y * 1;
     piece->dx = dx * 1;
     piece->dy = dy * 1;
 
@@ -30,6 +31,7 @@ void Piece_init(Piece* piece, UBYTE i, UBYTE x, UBYTE y, UBYTE dx, UBYTE dy) {
     set_sprite_data(piece->i + 1, 1, sprite);
     set_sprite_tile(piece->i + 1, 1);
     move_sprite(piece->i + 1, piece->x * PIECE_SIZE + 32, piece->y * PIECE_SIZE + 24);
+    i += 2;
     SHOW_SPRITES;
 }
 
