@@ -16,9 +16,11 @@ int main(void) {
     Board board;
     Board_init(&board);
 
-    //init_interrupts();
+    Sound_init(&sound);
+    // init_interrupts();
     for (;;) {
         Board_update(&board);
+        Board_sound(&board);
         delay(100);
     }
 }
