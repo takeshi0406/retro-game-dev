@@ -7,10 +7,10 @@
 
 void Board_init(Board* board) {
     UBYTE x1, y1;
-    Piece_init(&(board->piece1), 0, 0, 0, 1);
-    Piece_init(&(board->piece2), 1, 1, 0, 1);
-    Piece_init(&(board->piece3), 2, 2, 0, 1);
-    Piece_init(&(board->piece4), 3, 3, 0, 1);
+    size_t i;
+    for (i = 0; i < 8; i++) {
+        Piece_init(&(board->pieces[i]), i, 0, 0, 1);
+    }
 
     for (x1 = X_MIN; x1 <= X_MAX; x1 += 16) {
         line(x1, Y_MIN, x1, Y_MAX);
@@ -23,14 +23,14 @@ void Board_init(Board* board) {
 
 
 void Board_update(Board* board) {
-    Piece_move(&(board->piece1));
-    Piece_move(&(board->piece2));
-    Piece_move(&(board->piece3));
-    Piece_move(&(board->piece4));
+    size_t i;
+    for (i = 0; i < 8; i++) {
+       Piece_move(&(board->pieces[i]));
+    }
 }
 
 void Board_sound(Board* board) {
-    if ((&(board->piece1))->y < 1) {
+    if (board->pieces[0].y + board->pieces[0].dy > 7) {
         beep1(1379);
     };
 }

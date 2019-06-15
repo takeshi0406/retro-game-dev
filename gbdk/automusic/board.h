@@ -2,12 +2,10 @@
 #define _BOARD_H_INCLUDED_
 
 #include "piece.h"
+#include "const.h"
 
 typedef struct _Board {
-    Piece piece1;
-    Piece piece2;
-    Piece piece3;
-    Piece piece4;
+    Piece pieces[MAX_PIECES];
     UBYTE dx;
     UBYTE dy;
 } Board;
