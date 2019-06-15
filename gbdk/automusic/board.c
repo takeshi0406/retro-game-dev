@@ -8,8 +8,8 @@
 void Board_init(Board* board) {
     UBYTE x1, y1;
     size_t i;
-    for (i = 0; i < 8; i++) {
-        Piece_init(&(board->pieces[i]), i, 0, 0, 1);
+    for (i = 0; i < MAX_PIECES; i++) {
+        Piece_init(&(board->pieces[i]), i, 8 - i, 0, 1);
     }
 
     for (x1 = X_MIN; x1 <= X_MAX; x1 += 16) {
@@ -24,13 +24,16 @@ void Board_init(Board* board) {
 
 void Board_update(Board* board) {
     size_t i;
-    for (i = 0; i < 8; i++) {
+    for (i = 0; i < MAX_PIECES; i++) {
        Piece_move(&(board->pieces[i]));
     }
 }
 
 void Board_sound(Board* board) {
-    if (board->pieces[0].y + board->pieces[0].dy > 7) {
-        beep1(1379);
-    };
+    size_t i;
+    for (i = 0; i < MAX_PIECES; i++) {
+        if (board->pieces[i].y + board->pieces[i].dy > 7) {
+            sound1(board->pieces[i].x);
+        };
+    }
 }

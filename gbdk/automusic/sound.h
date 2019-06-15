@@ -3,13 +3,9 @@
 
 #include <gb/gb.h>
 
-typedef struct _Sound {
-    UBYTE i;
-} Sound;
-
-void Sound_init(Sound* sound);
-void Sound_play(Sound* sound);
+void sound1(UWORD i);
 void beep1(UWORD f);
 void beep2(UWORD f);
+void Sound_init(void);
 
 #endif
