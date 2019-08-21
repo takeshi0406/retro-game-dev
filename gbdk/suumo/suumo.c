@@ -1,6 +1,7 @@
 #include <gb/gb.h>
 #include "Player.h"
 #include "Sound.h"
+#include "Stage.h"
 #include "stdio.h"
 
 
@@ -17,7 +18,6 @@ int main(void) {
     Sound_init(&sound);
     Sound_intro();
     init_interrupts();
-
 
     for (;;) {
         Player_move(&player, joypad());

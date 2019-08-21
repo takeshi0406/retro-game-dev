@@ -2,6 +2,7 @@
 #include <gb/gb.h>
 #include <stdio.h>
 
+// SUUMO kun
 const unsigned char sprite[] = {
     0x00, 0x00, 0x00, 0x00,
     0x00, 0x00, 0x00, 0x00,
