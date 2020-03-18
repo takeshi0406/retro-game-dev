@@ -59,6 +59,7 @@ WAIT_VBLANK:
 	ld  a,[vblank_count]
 	inc a
 	ld  [vblank_count],a
+	ld [rNR50],a
 	ret
 
 DMA_COPY:
