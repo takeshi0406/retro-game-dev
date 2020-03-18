@@ -36,6 +36,13 @@ START:
 	ld  a,%11010011  ;turn on LCD, BG0, OBJ0, etc
 	ldh [rLCDC],a    ;load LCD flags
 
+	ld a,%00000110
+	ldh [rNR10],a 
+	ld a,%01000000
+	ldh [rNR11],a 
+	ld a,%01110011
+	ldh [rNR12],a 
+
 	call DMA_COPY    ;move DMA routine to HRAM
 LOOP:
 	call WAIT_VBLANK
@@ -59,7 +66,12 @@ WAIT_VBLANK:
 	ld  a,[vblank_count]
 	inc a
 	ld  [vblank_count],a
-	ld [rNR50],a
+
+	ld a,%01110011
+	ldh [rNR12],a 
+	ld a,%01110011
+	ldh [rNR13],a 
+	
 	ret
 
 DMA_COPY:
