@@ -36,6 +36,27 @@ START:
 	ld  a,%11010011  ;turn on LCD, BG0, OBJ0, etc
 	ldh [rLCDC],a    ;load LCD flags
 
+	ld a,%10000000
+	ldh [rNR52],a 
+	ld a,%1110111
+	ldh [rNR50],a 
+	ld a,%11111111
+	ldh [rNR51],a 
+
+	call DMA_COPY    ;move DMA routine to HRAM
+LOOP:
+	call WAIT_VBLANK
+	call READ_JOYPAD
+	call SOUND
+	call _HRAM		 ;call DMA routine from HRAM
+	jp LOOP
+
+;-------------
+; Subroutines
+;-------------
+
+
+SOUND:
 	ld a,%00000110
 	ldh [rNR10],a 
 	ld a,%01000000
@@ -43,16 +64,12 @@ START:
 	ld a,%01110011
 	ldh [rNR12],a 
 
-	call DMA_COPY    ;move DMA routine to HRAM
-LOOP:
-	call WAIT_VBLANK
-	call READ_JOYPAD
-	call _HRAM		 ;call DMA routine from HRAM
-	jp LOOP
-
-;-------------
-; Subroutines
-;-------------
+	ld a,%01110011
+	ldh [rNR13],a 
+	ld a,%01111111
+	ldh [rNR14],a 
+	jp SOUND
+	ret
 
 WAIT_VBLANK:
 	ld  hl,vblank_flag
@@ -66,12 +83,6 @@ WAIT_VBLANK:
 	ld  a,[vblank_count]
 	inc a
 	ld  [vblank_count],a
-
-	ld a,%01110011
-	ldh [rNR12],a 
-	ld a,%01110011
-	ldh [rNR13],a 
-	
 	ret
 
 DMA_COPY:
