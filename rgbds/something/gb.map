@@ -7,26 +7,26 @@ ROM Bank #0 (HOME):
   SECTION: $0058-$0058 ($0001 bytes) ["Serial IRQ Vector"]
   SECTION: $0060-$0060 ($0001 bytes) ["Joypad IRQ Vector"]
   SECTION: $0100-$014F ($0050 bytes) ["Start"]
-  SECTION: $0687-$0876 ($01F0 bytes) ["Tiles"]
-           $0687 = TILE_DATA
-  SECTION: $0287-$0686 ($0400 bytes) ["Map"]
-           $0287 = MAP_DATA
-  SECTION: $0150-$0286 ($0137 bytes) ["Program Start"]
+  SECTION: $0684-$0873 ($01F0 bytes) ["Tiles"]
+           $0684 = TILE_DATA
+  SECTION: $0284-$0683 ($0400 bytes) ["Map"]
+           $0284 = MAP_DATA
+  SECTION: $0150-$0283 ($0134 bytes) ["Program Start"]
            $0150 = START
-           $01D1 = CLEAR_MAP
-           $01E0 = LOAD_TILES
-           $01F2 = LOAD_MAP
-           $01BD = DMA_COPY
-           $01A9 = WAIT_VBLANK
-           $0204 = READ_JOYPAD
+           $01CE = CLEAR_MAP
+           $01DD = LOAD_TILES
+           $01EF = LOAD_MAP
+           $01BA = DMA_COPY
+           $01A6 = WAIT_VBLANK
+           $0201 = READ_JOYPAD
            $0191 = SOUND
            $0182 = LOOP
-           $01AC = WAIT_VBLANK.wait_vblank_loop
-           $01D7 = CLEAR_MAP.clear_map_loop
-           $01E9 = LOAD_TILES.load_tiles_loop
-           $01FB = LOAD_MAP.load_map_loop
-           $0284 = JOY_FALSE
-    SLACK: $386E bytes
+           $01A9 = WAIT_VBLANK.wait_vblank_loop
+           $01D4 = CLEAR_MAP.clear_map_loop
+           $01E6 = LOAD_TILES.load_tiles_loop
+           $01F8 = LOAD_MAP.load_map_loop
+           $0281 = JOY_FALSE
+    SLACK: $3871 bytes
 
 WRAM Bank #0:
   SECTION: $C000-$C003 ($0004 bytes) ["RAM Vars"]

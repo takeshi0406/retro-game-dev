@@ -57,18 +57,17 @@ LOOP:
 
 
 SOUND:
-	ld a,%00000110
+	ld a,%00011111
 	ldh [rNR10],a 
 	ld a,%01000000
-	ldh [rNR11],a 
-	ld a,%01110011
-	ldh [rNR12],a 
+	ldh [rNR41],a 
+	ld a,%11110001
+	ldh [rNR42],a 
 
-	ld a,%01110011
-	ldh [rNR13],a 
-	ld a,%01111111
-	ldh [rNR14],a 
-	jp SOUND
+	ld a,%00110000
+	ldh [rNR43],a 
+	ld a,%11000000
+	ldh [rNR44],a 
 	ret
 
 WAIT_VBLANK:
