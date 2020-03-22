@@ -4,10 +4,10 @@
 ; Includes
 ;-------------
 	
-	INCLUDE "hardware.asm"
-  INCLUDE "header.asm"
-	INCLUDE "tiles.asm"
-  INCLUDE "map.asm"
+INCLUDE "hardware.asm"
+INCLUDE "header.asm"
+INCLUDE "tiles.asm"
+INCLUDE "map.asm"
 
 ;-------------
 ; Start
